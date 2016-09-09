@@ -21,15 +21,26 @@ module.exports = function(digits){
     while(factor_0.toString().length === digits) {
       palindromeNumber = factor_0 * factor_1;
       palString = palindromeNumber.toString();
-      if(palString.charAt(0) === palString.charAt(palLength)) {
+      if(isPalindrome(palindromeNumber))
+      {
         break;
       }
       factor_0--;
     }
-    if(palString.charAt(0) === palString.charAt(palLength)) {
+    if(isPalindrome(palindromeNumber)) {
         break;
       }
     factor_1--;
+  }
+
+  function isPalindrome(n){
+    let palFound = false;
+    for(let i = 0; i <= palLength; i++){
+      if(palString.charAt(i) === palString.charAt((palLength - i))) {
+        palFound = true;
+      }
+    }
+    return palFound;
   }
 
 
