@@ -20,7 +20,6 @@ module.exports = function(digits){
   while(factor_1.toString().length === digits) {
     while(factor_0.toString().length === digits) {
       palindromeNumber = factor_0 * factor_1;
-      palString = palindromeNumber.toString();
       if(isPalindrome(palindromeNumber))
       {
         break;
@@ -29,17 +28,27 @@ module.exports = function(digits){
     }
     if(isPalindrome(palindromeNumber)) {
         break;
-      }
+    }
     factor_1--;
   }
 
   function isPalindrome(n){
+
+    let palString = n.toString();
+    let palArray = palString.split('');
+    let reverseArray = palString.split('').reverse();
     let palFound = false;
-    for(let i = 0; i <= palLength; i++){
-      if(palString.charAt(i) === palString.charAt((palLength - i))) {
+
+    for (let i = 0; i < palArray.length; i++)
+    {
+      if(palArray[i] === reverseArray[i]) {
         palFound = true;
+      } else {
+        palFound = false;
+        break;
       }
     }
+
     return palFound;
   }
 
