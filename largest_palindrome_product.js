@@ -26,8 +26,13 @@ module.exports = function(digits){
       }
       factor_0--;
     }
+    palindromeNumber = factor_0 * factor_1;
     if(isPalindrome(palindromeNumber)) {
-        break;
+      break;
+    }
+    if(factor_0.toString().length !== digits)
+    {
+      factor_0 = (1 * Math.pow(10, digits)) - 1;
     }
     factor_1--;
   }
