@@ -11,17 +11,24 @@ module.exports = function(digits){
   var palindromeNumber = 0;
 
   // do your work here
+  var palString;
+  var palLength = (digits * 2) - 1;
 
   factor_0 = (1 * Math.pow(10, digits)) - 1;
   factor_1 = (1 * Math.pow(10, digits)) - 1;
 
   while(factor_1.toString().length === digits) {
     while(factor_0.toString().length === digits) {
-      console.log('factor_0: ' + factor_0);
-      console.log('factor_1: ' + factor_1);
       palindromeNumber = factor_0 * factor_1;
+      palString = palindromeNumber.toString();
+      if(palString.charAt(0) === palString.charAt(palLength)) {
+        break;
+      }
       factor_0--;
     }
+    if(palString.charAt(0) === palString.charAt(palLength)) {
+        break;
+      }
     factor_1--;
   }
 
