@@ -12,6 +12,12 @@ module.exports = function(digits){
 
   // do your work here
 
+  factor_0 = (1 * Math.pow(10, digits)) - 1;
+  factor_1 = (1 * Math.pow(10, digits)) - 1;
+
+  while(factor_1.toString().length === 2) {
+    factor_1--;
+  }
 
 
   return {
