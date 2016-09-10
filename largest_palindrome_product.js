@@ -14,27 +14,22 @@ module.exports = function(digits){
   var palString;
   var palLength = (digits * 2) - 1;
 
-  factor_0 = (1 * Math.pow(10, digits)) - 1;
-  factor_1 = (1 * Math.pow(10, digits)) - 1;
+  test_factor = (1 * Math.pow(10, digits)) - 1;
 
-  while(factor_1.toString().length === digits) {
-    while(factor_0.toString().length === digits) {
-      palindromeNumber = factor_0 * factor_1;
-      if(isPalindrome(palindromeNumber))
+  for(let j = test_factor; j >= 0; j--) {
+    for(let i = test_factor; i >= 0; i--) {
+      let palindromeCheckNumber;
+      palindromeCheckNumber = i * j;
+      if(isPalindrome(palindromeCheckNumber))
       {
-        break;
+        if(palindromeCheckNumber > palindromeNumber) {
+          palindromeNumber = palindromeCheckNumber;
+          factor_0 = i;
+          factor_1 = j;
+          break;
+        }
       }
-      factor_0--;
     }
-    palindromeNumber = factor_0 * factor_1;
-    if(isPalindrome(palindromeNumber)) {
-      break;
-    }
-    if(factor_0.toString().length !== digits)
-    {
-      factor_0 = (1 * Math.pow(10, digits)) - 1;
-    }
-    factor_1--;
   }
 
   function isPalindrome(n){
